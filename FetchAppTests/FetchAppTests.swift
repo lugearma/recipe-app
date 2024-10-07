@@ -10,8 +10,8 @@ import Testing
 
 struct FetchAppTests {
   @Test func testLoadingWithValidRecipes() async throws {
-    TestURL.currentTestURL = .valid
-    let viewModel = await RecipeListViewModel()
+    let mockService = MockService(fileLoader: FileContentLoader(fileName: "valid-recipes-mock-response"))
+    let viewModel = await RecipeListViewModel(service: mockService)
     await viewModel.loadRecipes()
 
     guard case .loaded(let listState) = await viewModel.loadingState,
@@ -24,8 +24,8 @@ struct FetchAppTests {
   }
 
   @Test func testLoadingWithEmptyRecipes() async throws {
-    TestURL.currentTestURL = .empty
-    let viewModel = await RecipeListViewModel()
+    let mockService = MockService(fileLoader: FileContentLoader(fileName: "empty-recipes-mock-response"))
+    let viewModel = await RecipeListViewModel(service: mockService)
     await viewModel.loadRecipes()
 
     guard case .loaded(let listState) = await viewModel.loadingState,
@@ -38,8 +38,8 @@ struct FetchAppTests {
   }
 
   @Test func testLoadingWithMalformedRecipes() async throws {
-    TestURL.currentTestURL = .malformed
-    let viewModel = await RecipeListViewModel()
+    let mockService = MockService(fileLoader: FileContentLoader(fileName: "malformed-recipes-mock-response"))
+    let viewModel = await RecipeListViewModel(service: mockService)
     await viewModel.loadRecipes()
 
     guard case .failed = await viewModel.loadingState else {

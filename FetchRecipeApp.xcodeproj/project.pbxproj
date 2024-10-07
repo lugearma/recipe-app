@@ -21,9 +21,31 @@
 		92804B532CB41A8000D5B4C8 /* FetchAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FetchAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		92804B7A2CB455F100D5B4C8 /* Exceptions for "FetchRecipeApp" folder in "FetchAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Source/CoreDesign/ListState.swift,
+				Source/Models/Cuisine.swift,
+				Source/Models/LoadingState.swift,
+				Source/Models/Recipe.swift,
+				Source/Models/RecipesResponse.swift,
+				Source/RecipeRowViewModel.swift,
+				Source/RecipesListViewModel.swift,
+				Source/Service/Endpoint.swift,
+				Source/Service/RecipesServiceProtocol.swift,
+				Source/Service/RemoteService.swift,
+			);
+			target = 92804B522CB41A8000D5B4C8 /* FetchAppTests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		92804AFC2CB0BD9100D5B4C8 /* FetchRecipeApp */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				92804B7A2CB455F100D5B4C8 /* Exceptions for "FetchRecipeApp" folder in "FetchAppTests" target */,
+			);
 			path = FetchRecipeApp;
 			sourceTree = "<group>";
 		};
@@ -133,7 +155,6 @@
 					};
 					92804B522CB41A8000D5B4C8 = {
 						CreatedOnToolsVersion = 16.0;
-						TestTargetID = 92804AF92CB0BD9100D5B4C8;
 					};
 				};
 			};
@@ -382,7 +403,6 @@
 		92804B5A2CB41A8000D5B4C8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QD74Y3L5CP;
@@ -393,14 +413,12 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FetchRecipeApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FetchRecipeApp";
 			};
 			name = Debug;
 		};
 		92804B5B2CB41A8000D5B4C8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = QD74Y3L5CP;
@@ -411,7 +429,6 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FetchRecipeApp.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/FetchRecipeApp";
 			};
 			name = Release;
 		};

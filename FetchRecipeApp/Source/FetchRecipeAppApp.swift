@@ -9,10 +9,12 @@ import SwiftUI
 
 @main
 struct FetchRecipeAppApp: App {
+  private let recipeListViewModel = RecipeListViewModel(service: RemoteService())
+
   var body: some Scene {
     WindowGroup {
       NavigationStack {
-        RecipesList()
+        RecipesList(model: self.recipeListViewModel)
       }
     }
   }

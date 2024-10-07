@@ -12,10 +12,12 @@ import Foundation
 class RecipeRowViewModel: ObservableObject, Identifiable {
   let id = UUID()
   let recipe: Recipe
+  let service: RecipesServiceProtocol
   @Published var loadingImageDataState: LoadingState<Data> = .idle
 
-  init(recipe: Recipe) {
+  init(recipe: Recipe, service: RecipesServiceProtocol) {
     self.recipe = recipe
+    self.service = service
   }
 
   func loadImageData() async {
@@ -33,7 +35,7 @@ class RecipeRowViewModel: ObservableObject, Identifiable {
     }
 
     do {
-      let data = try await Networking.loadImage(url: url)
+      let data = try await self.service.loadImage(url: url)
       self.loadingImageDataState = .loaded(data)
     } catch {
       self.loadingImageDataState = .failed

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecipesList: View {
-  @StateObject var model = RecipeListViewModel()
+  @ObservedObject var model: RecipeListViewModel
 
   var body: some View {
     Group {
@@ -46,11 +46,11 @@ struct RecipesList: View {
       "Select endpoint",
       isPresented: self.$model.isEndpointDialogPresented,
       actions: {
-        ForEach(TestURL.allCases) { testURL in
+        ForEach(Endpoint.allCases) { testURL in
           Button(
             testURL.rawValue.capitalized,
             action: {
-              TestURL.currentTestURL = testURL
+              Endpoint.currentEndpoint = testURL
             }
           )
         }
@@ -97,5 +97,5 @@ struct RecipesList: View {
 }
 
 #Preview {
-  RecipesList()
+  RecipesList(model: .init(service: RemoteService()))
 }
