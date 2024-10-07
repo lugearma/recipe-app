@@ -16,7 +16,6 @@ struct FetchAppTests {
 
     guard case .loaded(let listState) = await viewModel.loadingState,
           case .filled(let recipes) = listState else {
-            print(TestURL.currentTestURL)
       #expect(Bool(false))
       return
     }
