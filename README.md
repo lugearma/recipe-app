@@ -1,5 +1,5 @@
 # Steps to Run the App
-Just download the code and run it.
+Download the code and run it.
 
 # Focus Areas: What specific areas of the project did you prioritize? Why did you choose to focus on these areas?
 I prioritize architecture because I believe it's the key to unlocking features like proper image loading, caching, and more. Additionally, a well-designed architecture makes your code easier for others to understand.
